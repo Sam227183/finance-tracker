@@ -3,7 +3,7 @@ class Stock < ApplicationRecord
   has_many :users, through: :user_stocks
 
   validates :name, :ticker, presence: true
-  
+
   def self.market_price(ticker)
     ticker = ticker.upcase.strip
     query = BasicYahooFinance::Query.new
@@ -17,7 +17,12 @@ class Stock < ApplicationRecord
     begin
       new(ticker: ticker, name: name, last_price: price)
     rescue => exception
-      return nil
+      nil
     end
   end
+
+  def self.check_db(ticker_symbol)
+    where(ticker: ticker_symbol).first
+  end
 end
+

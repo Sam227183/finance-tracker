@@ -1,12 +1,19 @@
 <% if @stock %>
-  <div class="card mt-3">
-    <div class="card-body">
-      <h4 class="card-title">
-        <span class="badge bg-primary me-2"><%= @stock.ticker %></span>
-        <span class="text-muted fs-6"><%= @stock.name %></span>
-      </h4>
-      <hr>
-      <h2 class="text-success fw-bold">$<%= @stock.last_price %></h2>
+  <div class="row">
+    <div class="col-9">
+      <div class="card mt-3">
+        <div class="card-body">
+          <h4 class="card-title">
+            <span class="badge bg-primary me-2"><%= @stock.ticker %></span>
+            <span class="text-muted fs-6"><%= @stock.name %></span>
+          </h4>
+          <br>
+          <h2 class="text-success fw-bold">$<%= @stock.last_price %></h2>
+          <%= link_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker),
+                                          class: "btn btn-sm btn-success", data: { turbo_method: :post } %>
+        </div>
+      </div>
     </div>
   </div>
+  <br>
 <% end %>
