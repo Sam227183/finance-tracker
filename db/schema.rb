@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_16_212735) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_05_000133) do
   create_table "stocks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.decimal "last_price"
@@ -32,6 +32,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_16_212735) do
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
