@@ -1,0 +1,17 @@
+<% if @friend %>
+  <div class="row">
+    <div class="col-9">
+      <div class="card mt-3">
+        <div class="card-body">
+          <h4 class="card-title">
+            <span class="badge bg-primary me-2"><%= @friend.email %></span>
+            <span class="text-muted fs-6"><%= @friend.first_name %> <%= @friend.last_name %></span>
+          </h4>
+          <br>
+          <%= link_to 'Follow', '#', class: "btn btn-sm btn-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+<% end %>
