@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   post "search_stock", to: "stocks#search"
   get "my_friends", to: "users#my_friends"
   post "search_friend", to: "users#search"
+
+  resources :users, only: [ :show ]
 end
